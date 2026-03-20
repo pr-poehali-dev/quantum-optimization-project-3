@@ -306,10 +306,7 @@ function EntranceSection({ isActive }: { isActive: boolean }) {
         animate={isActive ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.8, delay: 0.2 }}
       >
-        <div className="w-full h-64 bg-rose-900/30 flex flex-col items-center justify-center gap-3 text-rose-300/60">
-          <span className="text-5xl">🏛️</span>
-          <span className="text-sm text-center px-4">Загрузите фото входа в здание</span>
-        </div>
+        <img src="https://cdn.poehali.dev/projects/27409fbc-dda4-41dd-b466-06e4dd107088/bucket/11457d76-032a-4c86-bb56-404472e7def5.jpg" alt="Вход" className="w-full h-auto" />
       </motion.div>
       <motion.p
         className="text-white/70 text-base text-center px-6"
@@ -317,7 +314,7 @@ function EntranceSection({ isActive }: { isActive: boolean }) {
         animate={isActive ? { opacity: 1 } : {}}
         transition={{ duration: 0.6, delay: 0.5 }}
       >
-        Ориентируйтесь по таблице у входа
+        Кафе «Banquet» — поднимитесь по лестнице, вход под красным навесом
       </motion.p>
     </div>
   )
