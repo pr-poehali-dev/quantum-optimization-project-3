@@ -143,27 +143,30 @@ function InviteSection({ isActive }: { isActive: boolean }) {
   )
 }
 
-// ─── Секция 3: Совместное фото ──────────────────────────────────────────────
+// ─── Секция 3: Дата торжества ──────────────────────────────────────────────
 function CoupleSection({ isActive }: { isActive: boolean }) {
   return (
-    <div
-      className="relative h-full flex flex-col items-center justify-end pb-16"
-      style={{
-        backgroundImage: `url(${PHOTOS.couple})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center top',
-      }}
-    >
-      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+    <div className="relative h-full flex flex-col items-center justify-center bg-gradient-to-b from-[#1a0a0f] to-[#2d0f1e]">
+      <FloatingPetals />
       <motion.div
         className="relative z-10 text-center px-6"
         initial={{ opacity: 0, y: 40 }}
-        animate={isActive ? { opacity: 1, y: 0 } : {}}
+        animate={isActive ? { opacity: 1, y: 0 } : { opacity: 1, y: 0 }}
         transition={{ duration: 0.9, delay: 0.3 }}
       >
-        <p className="text-rose-200 text-sm tracking-[0.3em] uppercase mb-2">дата торжества</p>
-        <h2 className="text-white font-serif text-5xl md:text-7xl italic mb-2">10.07.2026</h2>
-        <p className="text-rose-300 text-xl md:text-2xl font-light">Мы ждём тебя рядом ♡</p>
+        <p className="text-rose-200 text-sm tracking-[0.3em] uppercase mb-6">дата торжества</p>
+        <div className="flex items-center justify-center gap-3 mb-4">
+          <div className="h-px w-16 bg-rose-400/50" />
+          <span className="text-rose-300 text-2xl">♡</span>
+          <div className="h-px w-16 bg-rose-400/50" />
+        </div>
+        <h2 className="text-white font-serif text-6xl md:text-8xl italic mb-4">10.07.2026</h2>
+        <div className="flex items-center justify-center gap-3 mb-6">
+          <div className="h-px w-16 bg-rose-400/50" />
+          <span className="text-rose-300 text-2xl">♡</span>
+          <div className="h-px w-16 bg-rose-400/50" />
+        </div>
+        <p className="text-rose-300 text-xl md:text-2xl font-light">Мы ждём тебя рядом</p>
       </motion.div>
     </div>
   )
@@ -191,7 +194,7 @@ function DressCodeSection({ isActive }: { isActive: boolean }) {
       <motion.p
         className="text-rose-300 text-xs tracking-[0.4em] uppercase mb-4"
         initial={{ opacity: 0 }}
-        animate={isActive ? { opacity: 1 } : {}}
+        animate={{ opacity: 1 }}
         transition={{ duration: 0.6 }}
       >
         дресс-код
@@ -199,7 +202,7 @@ function DressCodeSection({ isActive }: { isActive: boolean }) {
       <motion.h2
         className="text-white font-serif text-3xl md:text-4xl italic text-center mb-8"
         initial={{ opacity: 0, y: 20 }}
-        animate={isActive ? { opacity: 1, y: 0 } : {}}
+        animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, delay: 0.1 }}
       >
         Пожалуйста, не надевайте
@@ -208,7 +211,7 @@ function DressCodeSection({ isActive }: { isActive: boolean }) {
       <motion.div
         className="flex gap-4 mb-8 flex-wrap justify-center"
         initial={{ opacity: 0, y: 20 }}
-        animate={isActive ? { opacity: 1, y: 0 } : {}}
+        animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, delay: 0.3 }}
       >
         {forbidden.map((item) => (
@@ -223,35 +226,20 @@ function DressCodeSection({ isActive }: { isActive: boolean }) {
         ))}
       </motion.div>
 
-      <motion.div
-        className="w-full max-w-sm h-px bg-rose-400/30 mb-8"
-        initial={{ scaleX: 0 }}
-        animate={isActive ? { scaleX: 1 } : {}}
-        transition={{ duration: 0.8, delay: 0.5 }}
-      />
+      <div className="w-full max-w-sm h-px bg-rose-400/30 mb-8" />
 
-      <motion.h3
-        className="text-rose-200 font-serif text-xl italic text-center mb-4"
-        initial={{ opacity: 0 }}
-        animate={isActive ? { opacity: 1 } : {}}
-        transition={{ duration: 0.6, delay: 0.6 }}
-      >
+      <p className="text-rose-200 font-serif text-xl italic text-center mb-4">
         Приветствуются оттенки
-      </motion.h3>
+      </p>
 
-      <motion.div
-        className="flex gap-4 flex-wrap justify-center"
-        initial={{ opacity: 0, y: 20 }}
-        animate={isActive ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 0.7, delay: 0.7 }}
-      >
+      <div className="flex gap-4 flex-wrap justify-center">
         {welcome.map((item) => (
           <div key={item.label} className="flex flex-col items-center gap-2">
             <div className="w-12 h-12 rounded-full border-2 border-rose-300/40 shadow-lg" style={{ backgroundColor: item.color }} />
             <span className="text-white/70 text-xs">{item.label}</span>
           </div>
         ))}
-      </motion.div>
+      </div>
     </div>
   )
 }
@@ -299,12 +287,49 @@ function MapSection({ isActive }: { isActive: boolean }) {
   )
 }
 
+// ─── Секция: Вход в здание ──────────────────────────────────────────────────
+function EntranceSection({ isActive }: { isActive: boolean }) {
+  return (
+    <div className="relative h-full flex flex-col items-center justify-center bg-gradient-to-b from-[#2d0f1e] to-[#1a0a0f]">
+      <FloatingPetals />
+      <motion.p
+        className="text-rose-300 text-xs tracking-[0.4em] uppercase mb-4"
+        initial={{ opacity: 0 }}
+        animate={isActive ? { opacity: 1 } : {}}
+        transition={{ duration: 0.6 }}
+      >
+        вход в зал
+      </motion.p>
+      <motion.div
+        className="w-full max-w-xs md:max-w-sm rounded-2xl overflow-hidden border-2 border-rose-400/30 shadow-2xl mb-6"
+        initial={{ opacity: 0, y: 30 }}
+        animate={isActive ? { opacity: 1, y: 0 } : {}}
+        transition={{ duration: 0.8, delay: 0.2 }}
+      >
+        <div className="w-full h-64 bg-rose-900/30 flex flex-col items-center justify-center gap-3 text-rose-300/60">
+          <span className="text-5xl">🏛️</span>
+          <span className="text-sm text-center px-4">Загрузите фото входа в здание</span>
+        </div>
+      </motion.div>
+      <motion.p
+        className="text-white/70 text-base text-center px-6"
+        initial={{ opacity: 0 }}
+        animate={isActive ? { opacity: 1 } : {}}
+        transition={{ duration: 0.6, delay: 0.5 }}
+      >
+        Ориентируйтесь по таблице у входа
+      </motion.p>
+    </div>
+  )
+}
+
 // ─── Главный компонент ──────────────────────────────────────────────────────
 const SECTIONS = [
   { id: 'childhood', Component: ChildhoodSection },
   { id: 'invite', Component: InviteSection },
   { id: 'couple', Component: CoupleSection },
   { id: 'dresscode', Component: DressCodeSection },
+  { id: 'entrance', Component: EntranceSection },
   { id: 'map', Component: MapSection },
 ]
 
