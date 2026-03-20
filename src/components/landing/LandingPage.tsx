@@ -162,7 +162,7 @@ function CoupleSection({ isActive }: { isActive: boolean }) {
         transition={{ duration: 0.9, delay: 0.3 }}
       >
         <p className="text-rose-200 text-sm tracking-[0.3em] uppercase mb-2">дата торжества</p>
-        <h2 className="text-white font-serif text-5xl md:text-7xl italic mb-2">2025</h2>
+        <h2 className="text-white font-serif text-5xl md:text-7xl italic mb-2">10.07.2026</h2>
         <p className="text-rose-300 text-xl md:text-2xl font-light">Мы ждём тебя рядом ♡</p>
       </motion.div>
     </div>
